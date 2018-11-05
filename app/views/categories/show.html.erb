@@ -1,0 +1,57 @@
+  <h1>
+  <strong>Category:</strong>
+  <%= @category.title %>
+  </h1>
+  <hr>
+
+
+<% @category.posts.each do |post| %>
+  <h2>
+    <strong>Headline:</strong>
+    <%= post.headline %>
+  </h2>
+
+  <p>
+    <strong>Description:</strong>
+    <%= post.body %>
+  </p>
+   <p>
+    <strong>Price:</strong>
+    <%= post.price %>
+  </p>
+  <p>
+    <strong>Posted on:</strong>
+    <%= post.date %>
+  </p>
+<% end %>
+
+<hr> 
+
+<h2>Add a post:</h2>
+<%= form_with(model: [ @category, @category.posts.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :headline %><br>
+    <%= form.text_field :headline %>
+  </p>
+ <p>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+  </p>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+   <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_category_path(@category) %>
+  <%= link_to 'Back', categories_path %>
+</p>
+ 

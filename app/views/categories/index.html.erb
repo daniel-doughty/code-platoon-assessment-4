@@ -1,0 +1,24 @@
+<h1>Welcome to DansList</h1>
+<hr>
+<h3>Pick a category below to browse:</h3>
+ <hr>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+ 
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.title %></td>
+      <td><%= link_to 'Show', "/categories/#{category.id}" %>
+       <td><%= link_to 'Edit', "/categories/#{category.id}/edit" %></td>
+       <td><%= link_to 'Destroy', "/categories/#{category.id}",
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<%= link_to 'New Category', new_category_path %>
