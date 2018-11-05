@@ -1,0 +1,24 @@
+<h2>
+    <strong>Headline:</strong>
+    <%= post.headline %>
+  </h2>
+
+  <p>
+    <strong>Description:</strong>
+    <%= post.body %>
+  </p>
+   <p>
+    <strong>Price:</strong>
+    <%= post.price %>
+  </p>
+  <p>
+    <strong>Posted on:</strong>
+    <%= post.date %>
+  </p>
+
+  <p>
+  <%= link_to 'Delete Post', [post.category, post],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit Post', ['edit', post.category, post] %>
+</p>
